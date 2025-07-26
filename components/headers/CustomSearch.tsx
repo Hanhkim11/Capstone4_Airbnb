@@ -5,6 +5,7 @@ import { Input, DatePicker, Dropdown, Button, Space, Divider } from "antd";
 import { SearchOutlined, UserOutlined } from "@ant-design/icons";
 import dayjs from "dayjs";
 import type { RangePickerProps } from "antd/es/date-picker";
+import { useAppSelector } from "@/app/redux/hooks";
 const { RangePicker } = DatePicker;
 
 const CustomSearch = () => {
@@ -16,6 +17,8 @@ const CustomSearch = () => {
     infants: 0,
     pet: 0,
   });
+
+  const {locations} = useAppSelector((state) => state.location);
 
   const guestMenu = (
     <div className="p-4 w-64 bg-gray-200 rounded-lg">
@@ -147,7 +150,7 @@ const CustomSearch = () => {
 
   return (
     <div
-      className="rounded-full shadow-md px-6 py-2 flex items-center justify-between gap-4 bg-white"
+      className="rounded-full border border-gray-102 shadow-md px-6 py-2 flex items-center justify-between gap-4 bg-white"
       style={{ width: "60%" }}
     >
       <div className="flex gap-6 items-center text-sm w-full">

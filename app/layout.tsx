@@ -2,16 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Headers from "@/components/headers/Headers";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Footer from "@/components/footer/Footer";
+import ReduxProvider from "./customProvider/ReduxProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -25,11 +17,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-         className={`${geistSans.variable} ${geistMono.variable} antialiased container mx-auto`}
-      >
-        <Headers/>
-        {children}
+      <body className={`antialiased`}>
+        <ReduxProvider>
+          <div className="container mx-auto">
+            <Headers />
+            <div className="mt-52">{children}</div>
+          </div>
+          <Footer />
+        </ReduxProvider>
       </body>
     </html>
   );
