@@ -240,7 +240,7 @@ const RoomDetail = () => {
     value: number | undefined
   ) => {
     return (
-      <div className="flex items-center gap-2">
+      <div className="flex items-center text-nowrap gap-2">
         <Icon size={25} color="black" />
         {value} {text}
       </div>
@@ -335,12 +335,12 @@ const RoomDetail = () => {
         />
       </div>
       {/* info room */}
-      <div className="info mt-5 grid grid-cols-1 md:grid-cols-4  gap-5">
-        <div className="description col-span-1 md:col-span-3">
+      <div className="info mt-5 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
+        <div className="description col-span-1 md:col-span-3 lg:col-span-3">
           <Title level={3}>Chi Tiết phòng</Title>
           <div>
             {/* render room Icon */}
-            <div className=" flex text-lg font-medium text-gray-500 gap-5 items-center">
+            <div className=" flex text-lg font-medium flex-wrap text-gray-500 gap-5 items-center">
               {renderIcon(IoPeopleCircleOutline, "khách", roomDetail?.khach)}
               {renderIcon(FaBed, "phòng ngủ", roomDetail?.phongNgu)}
               {renderIcon(FaBed, "Giường", roomDetail?.giuong)}
@@ -384,11 +384,10 @@ const RoomDetail = () => {
         </div>
 
         {/* Đặt phòng */}
-        <div className="card-booking col-span-1">
+        <div className="card-booking col-span-3 lg:col-span-1">
           <div className="card-booking-content">
-            <Title level={3}>Đặt phòng</Title>
             <div className="card">
-              <Space direction="vertical" size={16}>
+              <Space className="!w-full" direction="vertical">
                 <Card
                   className="shadow-lg"
                   title={
@@ -399,10 +398,9 @@ const RoomDetail = () => {
                       </div>
                     </>
                   }
-                  style={{ maxWidth: 370 }}
                 >
-                  <div className="flex flex-col min-w-[200px]">
-                    <div className="flex justify-between w-56 mb-0.5">
+                  <div className="flex flex-col ">
+                    <div className="flex justify-around mb-0.5">
                       <span className="font-medium">Ngày đến</span>
                       <span className="font-medium">Ngày đi</span>
                     </div>
