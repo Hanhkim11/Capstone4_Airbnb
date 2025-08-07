@@ -1,3 +1,4 @@
+import { TCommentPost } from "@/app/types/typeComments";
 import { api } from "../apiUtils";
 
 const apiGetComments = async () => {
@@ -18,7 +19,17 @@ const apiGetCommentsByRoomId = async (id: string) => {
   }
 };
 
+const apiPostComment = async (data: TCommentPost) => {
+  try {
+    const response = await api.post(`binh-luan`, data);
+    return response.data.content;
+  } catch (error) {
+    throw error;
+  }
+};
+
 export const apiComments = {
   apiGetComments,
   apiGetCommentsByRoomId,
+  apiPostComment,
 };

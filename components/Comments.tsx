@@ -1,10 +1,24 @@
+"use ";
 import { apiComments } from "@/app/api/comments/apicomments";
-import { TComment } from "@/app/types/typeComments";
+import { TComment, TCommentPost } from "@/app/types/typeComments";
 import React, { useEffect, useState } from "react";
-import { Avatar, Divider, List, Skeleton, Rate, Input, Button } from "antd";
+import {
+  Avatar,
+  Divider,
+  List,
+  Skeleton,
+  Rate,
+  Input,
+  Button,
+  notification,
+  Space,
+  message,
+} from "antd";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { useAppSelector } from "@/app/redux/hooks";
 import { SendOutlined } from "@ant-design/icons";
+import { error } from "console";
+import { get } from "http";
 
 interface CommentsProps {
   id: string;
@@ -21,9 +35,15 @@ const Comments = ({ id }: CommentsProps) => {
 
   const { userLogin } = useAppSelector((state) => state.user);
 
+  const [valueInput, setValueInput] = useState<string>("");
+
+  const [starComments, setStarComments] = useState<number>(0);
+
+  const [api, contextHolder] = notification.useNotification();
+
   const pageSize = 10;
 
-  useEffect(() => {
+  const getAllComments = async () => {
     apiComments
       .apiGetCommentsByRoomId(id)
       .then((res) => {
@@ -36,6 +56,9 @@ const Comments = ({ id }: CommentsProps) => {
       .catch((err) => {
         console.log(err);
       });
+  };
+  useEffect(() => {
+    getAllComments();
   }, [id]);
 
   const loadMoreData = () => {
@@ -54,8 +77,39 @@ const Comments = ({ id }: CommentsProps) => {
     }
   };
 
+  // handle post comment
+  const handlerPostComment = () => {
+    const date = new Date();
+    const newComment: TCommentPost = {
+      id: 0,
+      maPhong: Number(id),
+      maNguoiBinhLuan: userLogin?.user.id || 0,
+      ngayBinhLuan: date.toISOString(),
+      noiDung: valueInput,
+      saoBinhLuan: starComments,
+    };
+    apiComments
+      .apiPostComment(newComment)
+      .then((res) => {
+        api.success({
+          message: "Gửi bình luận thành công!",
+          description: "Cảm ơn bạn đã đóng góp ý kiến.",
+          placement: "top",
+        });
+        getAllComments();
+        setValueInput("");
+        setStarComments(0);
+      })
+      .catch((error) => {
+        api.error({
+          message: "Gửi bình luận thất bại!",
+        });
+      });
+  };
+
   return (
     <div className="mt-10">
+      {contextHolder}
       <div
         className="shadow-md rounded-md p-5"
         id="scrollableDiv"
@@ -97,11 +151,28 @@ const Comments = ({ id }: CommentsProps) => {
           />
         </InfiniteScroll>
       </div>
-      <div className="mt-5 flex items-center gap-2">
+      <div className="mt-5 flex gap-2">
         <Avatar className="shadow-lg" size={40} src={userLogin?.user?.avatar} />
-        <Input placeholder="Nhập bình luận của bạn..." className="mt-2 !p-2" />
 
+        <div className="flex flex-col gap-2 w-full">
+          <Input
+            value={valueInput}
+            onChange={(event) => {
+              setValueInput(event.target.value);
+            }}
+            placeholder="Nhập bình luận của bạn..."
+            className="mt-2 !p-2"
+          />
+          <Rate
+            onChange={(value) => {
+              setStarComments(value);
+            }}
+            className="block"
+            defaultValue={0}
+          />
+        </div>
         <Button
+          onClick={handlerPostComment}
           className="!p-2 !h-10"
           icon={<SendOutlined />}
           iconPosition="start"
@@ -110,7 +181,6 @@ const Comments = ({ id }: CommentsProps) => {
           Gửi
         </Button>
       </div>
-      <Rate className="block" defaultValue={0} />
     </div>
   );
 };

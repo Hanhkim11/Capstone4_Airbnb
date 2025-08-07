@@ -6,3 +6,12 @@ export interface TComment {
   tenNguoiBinhLuan: string;
   avatar: string;
 }
+
+export interface TCommentPost {
+  id: number;
+  maPhong: number;
+  maNguoiBinhLuan: number;
+  ngayBinhLuan: string;
+  noiDung: string;
+  saoBinhLuan: number;
+}
