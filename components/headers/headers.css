@@ -1,0 +1,28 @@
+.logo-language,
+.btn-bar {
+    height: 50px;
+    width: 50px;
+    background-color: rgba(215, 215, 215, 0.476);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.host {
+    padding: 5px 7px;
+    border-radius: 15px;
+    transition: .3s
+}
+
+.logo-language:hover,
+.btn-bar:hover,
+.host:hover {
+    background-color: rgba(215, 215, 215);
+}
+
+.list-link {
+    width: 30%;
+}
