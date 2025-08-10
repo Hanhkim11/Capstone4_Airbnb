@@ -1,0 +1,138 @@
+.locationlist-body {
+    padding: 30px;
+    background-color: #f4f6f8;
+  }
+  
+  .locationlist-main-content {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  .locationlist-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .locationlist-h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .locationlist-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .locationlist-avatar {
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+  }
+
+  .locationlist-section span {
+    color: #007bff;
+    margin: 10px;
+  }
+
+  .locationlist-section span:hover {
+    color: #102dac;
+  }
+
+  .locationlist-home {
+    cursor: pointer;
+    margin: 20px;
+    font-size: 20px;
+  }
+  
+  .locationlist-btn-add {
+    background-color: #28a745;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .locationlist-btn-add:hover {
+    background-color: #218838;
+  }
+
+  .locationlist-form .locationlist-input {
+    border-radius: none;
+  }
+
+  .locationlist-form .locationlist-btn {
+    padding: 8px 16px;
+    background-color: #1890ff;
+    cursor: pointer;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  .locationlist-search-box {
+    width: 100%;
+    padding: 8px;
+    margin: 16px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  .locationlist-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .locationlist-table th,
+  .locationlist-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .locationlist-table th {
+    background-color: #f0f0f0;
+  }
+
+
+  .locationlist-btn-edit .locationlist-i {
+    color: #2ecc71;
+  }
+  
+  .locationlist-btn-delete .locationlist-i {
+    color: #e74c3c;
+  }
+
+  .locationlist-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 10px;
+  }
+
+  .locationlist-pagination .locationlist-button {
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    background-color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+
+  .locationlist-pagination .locationlist-button.active {
+    background-color: #1890ff;
+    color: white;
+    border-color: #1890ff;
+  }
+
