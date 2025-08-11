@@ -49,11 +49,21 @@ export default function ReservationList() {
     const fetchReservations = async () => {
         try {
             const res = await apiAdmin.getReservationService();
-            const data = res?.data?.content || [];
-            setReservations(data);
+            if (res && res.data && res.data.content && Array.isArray(res.data.content)) {
+                setReservations(res.data.content);
+            } else if (res && res.data && Array.isArray(res.data)) {
+                setReservations(res.data);
+            } else if (res && Array.isArray(res)) {
+                setReservations(res);
+            } else {
+                console.error('Unexpected response structure:', res);
+                toast.error("Invalid response format");
+                setReservations([]);
+            }
         } catch (err) {
             toast.error("Lỗi khi tải danh sách đặt phòng");
             console.error("Lỗi khi tải danh sách đặt phòng:", err);
+            setReservations([]);
         }
     };
 

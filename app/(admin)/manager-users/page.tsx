@@ -25,8 +25,16 @@ const AdminUsersPage = () => {
     setIsLoading(true);
     try {
       const res = await apiAdmin.apiGetAllUser(currentPage, itemsPerPage, searchTerm);
-      setListUser(res.data);
-      setTotalPages(Math.ceil(res.totalRow / itemsPerPage));
+      if (res && res.content && Array.isArray(res.content)) {
+        setListUser(res.content);
+        setTotalPages(Math.ceil(res.totalRow / itemsPerPage));
+      } else if (res && Array.isArray(res)) {
+        setListUser(res);
+        setTotalPages(1);
+      } else {
+        console.error('Unexpected response structure:', res);
+        toast.error("Invalid response format!");
+      }
     } catch (err: any) {
       console.error("Lỗi khi tải danh sách người dùng:", err);
       toast.error("Không thể tải danh sách người dùng!");

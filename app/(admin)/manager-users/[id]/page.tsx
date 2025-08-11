@@ -56,8 +56,16 @@ export default function UserList() {
   const fetchUsers = () => {
     apiAdmin.apiGetAllUser(currentPage, itemsPerPage, searchTerm)
       .then((res) => {
-        setUserList(res.data);
-        setTotalPages(Math.ceil(res.totalRow / itemsPerPage));
+        if (res && res.content && Array.isArray(res.content)) {
+          setUserList(res.content);
+          setTotalPages(Math.ceil(res.totalRow / itemsPerPage));
+        } else if (res && Array.isArray(res)) {
+          setUserList(res);
+          setTotalPages(1);
+        } else {
+          console.error('Unexpected response structure:', res);
+          toast.error("Invalid response format!");
+        }
       })
       .catch((err) => {
         toast.error("Không thể tải danh sách người dùng!");

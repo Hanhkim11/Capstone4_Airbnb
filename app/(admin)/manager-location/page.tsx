@@ -41,8 +41,16 @@ const AdminLocationPage = () => {
     setIsLoading(true);
     try {
       const res = await apiAdmin.apiGetAllLocations(currentPage, itemsPerPage, searchTerm);
-      setListLocation(res.data);
-      setTotalPages(Math.ceil(res.totalRow / itemsPerPage));
+      if (res && res.content && Array.isArray(res.content)) {
+        setListLocation(res.content);
+        setTotalPages(Math.ceil(res.totalRow / itemsPerPage));
+      } else if (res && Array.isArray(res)) {
+        setListLocation(res);
+        setTotalPages(1);
+      } else {
+        console.error('Unexpected response structure:', res);
+        toast.error("Invalid response format!");
+      }
     } catch (err: any) {
       console.error("Lỗi khi tải danh sách vị trí:", err);
       toast.error("Không thể tải danh sách vị trí!");

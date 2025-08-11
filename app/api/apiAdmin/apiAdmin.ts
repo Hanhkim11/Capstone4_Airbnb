@@ -3,7 +3,7 @@ import { api } from "../apiUtils"
 const apiGetAllUser = async (pageIndex: number, pageSize: number, keyword: string) => {
     try {
         const res = await api.get(`users/phan-trang-tim-kiem?pageIndex=${pageIndex}&pageSize=${pageSize}&keyword=${keyword}`)
-        return res.data.content
+        return res.data
     } catch (error) {
         throw error
     }

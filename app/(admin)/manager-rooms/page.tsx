@@ -64,10 +64,23 @@ const AdminsRoomsPage = () => {
         setLoading(true);
         setError(null);
         apiAdmin.getAllRoomAdmin()
-            .then((res) => setRooms(res?.data?.content || []))
+            .then((res) => {
+                if (res && res.data && res.data.content && Array.isArray(res.data.content)) {
+                    setRooms(res.data.content);
+                } else if (res && res.data && Array.isArray(res.data)) {
+                    setRooms(res.data);
+                } else if (res && Array.isArray(res)) {
+                    setRooms(res);
+                } else {
+                    console.error('Unexpected response structure:', res);
+                    setError('Invalid response format');
+                    setRooms([]);
+                }
+            })
             .catch((err) => {
                 console.error("Lỗi khi tải danh sách phòng (component):", err);
                 setError(err.message || "Lỗi khi tải danh sách phòng.");
+                setRooms([]);
             })
             .finally(() => setLoading(false));
     }, []);
