@@ -1,0 +1,349 @@
+/* General styles for the admin page */
+.roomlist_body {
+    background-color: #f4f7f6;
+    padding: 20px;
+    color: #333;
+    min-height: 100vh;
+  }
+  
+  .roomlist_main {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .roomlist_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  .roomlist_h1 {
+    font-size: 2em; /* Tăng kích thước */
+    color: #2c3e50;
+    font-weight: 600;
+  }
+  
+  .roomlist_logout {
+    display: flex;
+    align-items: center;
+  }
+  .roomlist_avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin-right: 10px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1em;
+  }
+  .roomlist_logout span {
+    color: #007bff;
+    margin: 10px;
+  }
+  .roomlist_logout span:hover {
+    color: #102dac;
+  }
+  
+  .roomlist_home {
+    cursor: pointer;
+    margin: 20px;
+    font-size: 20px;
+  }
+  
+  
+  /* Styles for controls (add button and search box) */
+  .roomlist_controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    gap: 15px;
+  }
+  
+    .roomlist_btn_add {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+  }
+  .roomlist_btn_add:hover {
+    background-color: #218838;
+  }
+  
+  .roomlist_search_box {
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    width: 320px;
+    font-size: 0.95em;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .roomlist_search_box:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  /* FORM STYLES */
+  .roomlist_form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 25px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    background-color: #fdfdfd;
+  }
+  
+  .roomlist_form_group {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 calc(50% - 10px);
+    min-width: 220px;
+  }
+  
+  .roomlist_form_group.full-width {
+    flex: 1 1 100%;
+  }
+  
+  .roomlist_label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9em;
+    color: #495057;
+  }
+  
+  .roomlist_input,
+  .roomlist_input_file,
+  .roomlist_form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-size: 0.95em;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  .roomlist_input:focus,
+  .roomlist_form textarea:focus,
+  .roomlist_input_file:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
+  .roomlist_form textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  /* Styling for image upload and preview */
+    .roomlist_input_file {
+    /* Thêm style nếu muốn custom giao diện input file (thường phức tạp) */
+    /* Hoặc để mặc định trình duyệt */
+    padding: 8px;
+  }
+  .roomlist_image_preview_container {
+    margin-top: 10px;
+    text-align: center; /* Căn giữa ảnh preview */
+  }
+  .roomlist_image_preview_container img {
+    max-width: 100%;
+    height: auto;
+    max-height: 180px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    object-fit: contain; /* Hiển thị toàn bộ ảnh, có thể có khoảng trống */
+  }
+  .roomlist_selected_file_name {
+    font-size: 0.85em;
+    color: #555;
+    margin-top: 8px;
+    word-break: break-all;
+    text-align: left; /* Căn trái tên file */
+  }
+  
+  /* Styling for amenities (checkboxes) */
+  .roomlist_amenities_group .roomlist_checkbox_container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px; /* row-gap column-gap */
+    padding-top: 5px;
+    border: 1px solid #e9ecef;
+    padding: 15px;
+    border-radius: 4px;
+  }
+  .roomlist_checkbox_label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: normal;
+    font-size: 0.9em;
+    color: #495057;
+  }
+  .roomlist_checkbox_label input[type="checkbox"] {
+    margin-right: 8px;
+    width: auto;
+    height: 1em; /* Căn chỉnh kích thước checkbox */
+    vertical-align: middle;
+  }
+  
+  /* Form Actions (Buttons) */
+  .roomlist_form_actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    justify-content: flex-start; /* Căn các nút về bên trái */
+  }
+  
+  .roomlist_btn,
+  .roomlist_btn_cancel {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+    text-align: center;
+  }
+  .roomlist_btn {
+    background-color: #007bff;
+    color: white;
+  }
+  .roomlist_btn:hover {
+    background-color: #0056b3;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+    .roomlist_btn:disabled {
+    background-color: #a0c3e2;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  
+  .roomlist_btn_cancel {
+    background-color: #6c757d;
+    color: white;
+  }
+  .roomlist_btn_cancel:hover {
+    background-color: #545b62;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .roomlist_btn_cancel:disabled {
+    background-color: #b0b6bb;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  
+  /* Table Styles */
+  .roomlist_room_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-radius: 8px; /* Bo góc cho table nếu có thể (thường áp dụng cho container của table) */
+    overflow: hidden; /* Để border-radius có tác dụng với a */
+  }
+  .roomlist_th,
+  .roomlist_td {
+    border: 1px solid #e9ecef;
+    padding: 12px 15px;
+    text-align: left;
+    vertical-align: middle;
+    font-size: 0.9em;
+  }
+  .roomlist_th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #343a40;
+    text-transform: uppercase; /* Viết hoa tiêu đề cột */
+    font-size: 0.85em;
+    letter-spacing: 0.5px;
+  }
+  .roomlist_td img {
+    border-radius: 4px;
+    object-fit: cover;
+    width: 80px; /* Đảm bảo kích thước nhất quán */
+    height: 60px; /* Thêm chiều cao để ảnh không bị méo khi object-fit là cover */
+  }
+  .roomlist_btn_edit,
+  .roomlist_btn_delete {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    margin-right: 6px;
+    font-size: 1.1em;
+  }
+  .roomlist_btn_edit .fa-edit {
+    color: #ffc107;
+  }
+  .roomlist_btn_delete .fa-trash {
+    color: #dc3545;
+  }
+  .roomlist_btn_edit:hover .fa-edit,
+  .roomlist_btn_delete:hover .fa-trash {
+    opacity: 0.7;
+  }
+  
+  /* Pagination Styles */
+  .roomlist_pagination {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  }
+  .roomlist_button {
+    padding: 8px 14px;
+    border: 1px solid #dee2e6;
+    background-color: #fff;
+    cursor: pointer;
+    color: #007bff;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    border-radius: 4px;
+  }
+  .roomlist_button:hover {
+    background-color: #e9ecef;
+    border-color: #adb5bd;
+  }
+  .roomlist_button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+  }
+  .roomlist_button:disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+    color: #6c757d;
+    opacity: 0.6;
+  }
+  
+  /* Alert Message Styles (nếu bạn dùng component AlertMessage đã style inline) */
+  /* Bạn có thể chuyển style inline của AlertMessage ra đây nếu muốn */
+  
+  /* Icons (Font Awesome) - Đảm bảo bạn đã nhúng Font Awesome vào dự án */
+  /* .roomlist-i { */
+    /* Style chung cho icon nếu cần */
+  /* } */
+  
