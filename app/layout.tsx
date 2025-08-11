@@ -3,8 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Headers from "@/components/headers/Headers";
 import Footer from "@/components/footer/Footer";
-import ReduxProvider from "./customProvider/ReduxProvider";
+
 import LoadUserFromStorage from "@/helpers/LoadUserFromStorage";
+import ReduxProvider from "./customProvider/ReduxProvider";
 
 export const metadata: Metadata = {
   title: "Create Next App",

@@ -69,7 +69,6 @@ export const authService = {
   // Đăng xuất
   logout: () => {
     // Xóa token và user info từ localStorage
-    localStorage.removeItem("user");
-    localStorage.removeItem("token");
+    localStorage.removeItem("userLogin");
   },
 }; 

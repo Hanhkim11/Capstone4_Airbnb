@@ -5,6 +5,7 @@ import { TUserLogin } from "../../types/typeUser";
 const getCurrentUser = (): TUserLogin | null => {
   if (typeof window !== "undefined") {
     const currentUser = localStorage.getItem("userLogin");
+    console.log("currentUser", currentUser);
     return currentUser ? JSON.parse(currentUser) : null;
   }
   return null;

@@ -16,10 +16,11 @@ const AdminDashboard = () => {
       try {
         setLoading(true)
         setError(null)
+        
         const response = await apiAdmin.apiGetAllUser(1, 10, "")
         // Check if response has the correct structure
-        if (response && response.content && Array.isArray(response.content)) {
-          setListUser(response.content)
+        if (response && response.content && Array.isArray(response.content.data)) {
+          setListUser(response.content.data)
         } else if (response && Array.isArray(response)) {
           setListUser(response)
         } else {
