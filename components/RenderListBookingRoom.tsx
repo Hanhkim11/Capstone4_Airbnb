@@ -9,7 +9,6 @@ interface Props {
 }
 
 const RenderListBookingRoom = ({ ListBookingRoom }: Props) => {
-    console.log(ListBookingRoom)
     const [listRoomBookingDetails, setListRoomBookingDetails] = useState<TRoom[]>([]);
 
     const fetchAllRoomDetails = async () => {

@@ -360,7 +360,6 @@ const RoomDetail = () => {
                   title={<p className="font-medium">{item.title}</p>}
                   description={item.desc}
                 />
-                <List.Item.Meta />
               </List.Item>
             )}
           />

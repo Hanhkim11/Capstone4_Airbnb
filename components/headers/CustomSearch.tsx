@@ -160,13 +160,10 @@ const CustomSearch = () => {
   );
 
   return (
-    <div
-      className="rounded-full border border-gray-100 shadow-md px-6 py-2 flex items-center justify-between gap-4 "
-      style={{ width: "60%" }}
-    >
-      <div className="flex gap-6 items-center text-sm w-full">
+    <div className="rounded-full border border-gray-100 shadow-md px-6 py-2 flex items-center justify-between gap-4 ">
+      <div className="flex lg:gap-6 md:gap-4 gap-2 items-center text-sm w-full">
         {/* Địa điểm */}
-        <div className="flex flex-col min-w-[180px]">
+        <div className="flex flex-col ">
           <span className="font-medium">Địa điểm</span>
           <Input
             onFocus={() => {
@@ -209,8 +206,8 @@ const CustomSearch = () => {
         </div>
         <Divider type="vertical" className="h-10" />
         {/* Nhận phòng & Trả phòng */}
-        <div className="flex flex-col min-w-[200px]">
-          <div className="flex justify-between w-56 mb-0.5">
+        <div className="flex flex-col ">
+          <div className="flex justify-around mb-0.5">
             <span className="font-medium">Nhận phòng</span>
             <span className="font-medium">Trả phòng</span>
           </div>

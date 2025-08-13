@@ -1,0 +1,201 @@
+.userlist-body {
+  display: flex;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.userlist-main {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #f3f3f3;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.userlist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.userlist-h1 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.userlist-user-section {
+  display: flex;
+  align-items: center;
+}
+
+.userlist-avatar {
+  background-color: #007bff;
+  color: white;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 36px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.userlist-user-section span {
+  color: #007bff;
+  margin: 10px;
+}
+
+.userlist-user-section span:hover {
+  color: #102dac;
+}
+
+.userlist-home {
+  cursor: pointer;
+  margin: 20px;
+  font-size: 20px;
+}
+
+.userlist-btn-add {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.userlist-btn-add:hover {
+  background-color: #218838;
+}
+
+.userlist-search-box {
+  display: flex;
+  margin: 20px 0;
+  width: 100%;
+  max-width: 400px;
+}
+
+.userlist-search-box input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px 0 0 5px;
+  font-size: 14px;
+}
+
+.userlist-search-box button {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  background-color: #007bff;
+  color: white;
+  border-left: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.userlist-search-box button:hover {
+  background-color: #0056b3;
+}
+
+.userlist-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  margin-top: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.userlist-table th, 
+.userlist-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.userlist-table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #333;
+}
+
+.userlist-table td .userlist-table-i {
+  margin-right: 10px;
+  color: #2980b9;
+  cursor: pointer;
+}
+
+.userlist-a-edit .userlist-i {
+  color: #2ecc71;
+}
+
+.userlist-a-delete .userlist-i {
+  color: #e74c3c;
+}
+
+.userlist-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.userlist-pagination .userlist-button {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  background-color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.userlist-pagination .userlist-button:hover {
+  background-color: #f8f9fa;
+}
+
+.userlist-pagination .userlist-button.active {
+  background-color: #1890ff;
+  color: white;
+  border-color: #1890ff;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .userlist-main {
+    padding: 10px;
+  }
+  
+  .userlist-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .userlist-table {
+    font-size: 12px;
+  }
+  
+  .userlist-table th, 
+  .userlist-table td {
+    padding: 8px 4px;
+  }
+  
+  .userlist-search-box {
+    max-width: 100%;
+  }
+}
