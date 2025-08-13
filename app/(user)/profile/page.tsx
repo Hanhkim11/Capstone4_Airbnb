@@ -11,14 +11,11 @@ const ProfilePage = () => {
   const { userLogin } = useAppSelector((state) => state.user);
   const [bookingRoom, setBookingRoom] = useState<TBookingRoom[]>([]);
 
-  console.log(userLogin);
-
   useEffect(() => {
     if (userLogin) {
       apiRoom
         .apiGetRoomByMaNguoiDung(userLogin?.user.id.toString())
         .then((reponse) => {
-          console.log(reponse);
           setBookingRoom(reponse);
         });
     }

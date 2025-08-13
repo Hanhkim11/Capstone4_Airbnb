@@ -68,15 +68,12 @@ const Location = () => {
       }}
     >
       {/* render list rooms */}
-      <div
-        style={{ width: "49%" }}
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
-      >
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 w-[100%] md:w-[49%]">
         {loading ? <Spin size="large" /> : renderRooms()}
       </div>
 
       {/* render map */}
-      <div style={{ width: "49%" }}>
+      <div className="hidden md:block" style={{ width: "49%" }}>
         {/* Map component can be added here */}
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.023778781234!2d105.78014061540257!3d21.03065329313045!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135abc123456789%3A0x1234567890abcdef!2zVHLGsOG7nW5nIMSQ4buTbmcgUGhp!5e0!3m2!1svi!2s!4v1711135084321"
