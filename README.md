@@ -2,6 +2,13 @@ Link deploy: https://air-bnb-project.netlify.app
 
 Youtube video: https://www.youtube.com/watch?v=LY5Vru9cLcA
 
+Công nghệ sử dụng:
+_ Frontend: Next.js (React.js + TypeScript, Hooks: useState, useEffect, useParams, useRouter, useAppSelector, useAppDispatch)
+_ UI Libraries: Ant Design, Tailwind CSS, React Icons
+_ Routing: Next.js App Router (next/navigation)
+_ Quản lý dữ liệu: Redux Toolkit, Axios, LocalStorage
+_ Style: Tailwind CSS, file CSS riêng cho từng component 
+
 Tính năng chi tiết:
 _ Trang chủ (Home Page) – Hiển thị danh sách vị trí kèm hình ảnh, tên và tỉnh/thành, cho phép click để xem danh sách phòng thuộc vị trí đó.
 _ Trang danh sách phòng theo vị trí (Location Page) – Gọi API lấy phòng theo id vị trí, hiển thị grid phòng kèm giá, mô tả, và bản đồ Google Maps.
