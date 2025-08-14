@@ -43,7 +43,7 @@ const itemsLink = [
     link: "/",
     color: "#fa9244",
   },
-  
+
   {
     key: 3,
     icon: <FaConciergeBell size={40} />,
@@ -77,6 +77,7 @@ const Headers = () => {
       placement: "top",
       duration: 2,
     });
+    router.push("/");
   };
 
   const handleCloseModal = () => {
