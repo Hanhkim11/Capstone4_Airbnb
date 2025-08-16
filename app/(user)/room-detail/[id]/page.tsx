@@ -264,6 +264,13 @@ const RoomDetail = () => {
     });
   };
 
+  const formatDate = (date: string) => {
+    const [day, month, year] = date.split("-");
+    console.log("date", date);
+
+    return `${year}-${month}-${day}T00:00:00.000Z`;
+  };
+
   const handleBookingRoom = () => {
     if (!userLogin) {
       openNotification(
@@ -293,8 +300,8 @@ const RoomDetail = () => {
     const data = {
       id: 0,
       maPhong: Number(param.id),
-      ngayDen: dayjs(dates?.[0]).format("YYYY-MM-DDTHH:mm:ss.SSS") + "Z",
-      ngayDi: dayjs(dates?.[1]).format("YYYY-MM-DDTHH:mm:ss.SSS") + "Z",
+      ngayDen: formatDate(dates?.[0]),
+      ngayDi: formatDate(dates?.[1]),
       soLuongKhach:
         guestCounts.adults +
         guestCounts.children +
@@ -414,7 +421,7 @@ const RoomDetail = () => {
                       }
                       placeholder={["Ngày đến", "Ngày đi"]}
                       className="p-0 text-sm mt-1 w-full cursor-pointer"
-                      format="DD/MM/YYYY"
+                      format="DD-MM-YYYY"
                       disabledDate={(current) =>
                         current && current < dayjs().startOf("day")
                       }
@@ -422,6 +429,7 @@ const RoomDetail = () => {
                   </div>
                   <Divider />
                   <Dropdown
+                    autoFocus={false}
                     className="hover:shadow-xl hover:bg-gray-50 duration-300 p-2 rounded-lg"
                     popupRender={() => guestMenu}
                     trigger={["click"]}
