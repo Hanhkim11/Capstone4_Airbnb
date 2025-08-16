@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import { LiaAirbnb } from "react-icons/lia";
 import { HiHomeModern } from "react-icons/hi2";
 import { GiAirBalloon } from "react-icons/gi";
-import { FaConciergeBell } from "react-icons/fa";
+import { FaConciergeBell, FaUser } from "react-icons/fa";
 import { FaEarthAmericas } from "react-icons/fa6";
 import { FaBars } from "react-icons/fa";
 import type { MenuProps } from "antd";
@@ -163,7 +163,12 @@ const Headers = () => {
 
             <Dropdown menu={{ items }} trigger={["click"]}>
               <Space className="btn-bar">
-                <FaBars className="cursor-pointer" />
+                {userLogin ? (
+                  <FaUser className="cursor-pointer" />
+                ) : (
+                  <FaBars className="cursor-pointer" />
+                  
+                )}
               </Space>
             </Dropdown>
           </div>
